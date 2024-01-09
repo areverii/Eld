@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 //using CalamityMod.Particles;
 using Terraria.Graphics.Effects;
 using System;
+using CalamityMod.Projectiles.Ranged;
 
 namespace Eld.Projectiles
 {
@@ -24,8 +25,10 @@ namespace Eld.Projectiles
         public Player Owner => Main.player[Projectile.owner];
 
         public Vector2 MousePosition => Owner.Eld().mouseWorld - Owner.MountedCenter;
-        public const float WeaponLength = 52f;
+        public const float WeaponLength = 47f;
         public const float MaxSightAngle = MathHelper.Pi * (2f / 3f);
+
+        public const float bullet_speed = 12f;
 
         public Color ScopeColor => Color.White;
 
@@ -59,7 +62,8 @@ namespace Eld.Projectiles
                 // Increment the charge and set the projectile's properties
                 Charge++;
                 Projectile.rotation = MousePosition.ToRotation();
-                Projectile.Center = Projectile.rotation.ToRotationVector2() * WeaponLength + Owner.MountedCenter;
+                Vector2 laser_offset = new Vector2(-11, 6);
+                Projectile.Center = Projectile.rotation.ToRotationVector2() * WeaponLength + (Owner.MountedCenter + laser_offset);
 
                 // Set the player's properties
                 Owner.heldProj = Projectile.whoAmI;
@@ -110,8 +114,8 @@ namespace Eld.Projectiles
                     //Owner.Eld().GeneralScreenShakePower = 4f * ChargePercent;
 
                     // Spawn the laser
-                    int shotDamage = (int)(Projectile.damage * ChargePercent);
-                    //Projectile.NewProjectile(new EntitySource_ItemUse_WithAmmo(Owner, Owner.HeldItem, -1), Owner.MountedCenter + direction * WeaponLength, direction, ModContent.ProjectileType<TitaniumRailgunShot>(), shotDamage, Projectile.knockBack * ChargePercent, Projectile.owner, ai1: ChargePercent);
+                    //int shotDamage = (int)(Projectile.damage * ChargePercent);
+                    Projectile.NewProjectile(new EntitySource_ItemUse_WithAmmo(Owner, Owner.HeldItem, -1), Owner.MountedCenter + direction * (WeaponLength + 70f), direction * bullet_speed, ModContent.ProjectileType<EidolonTracer>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 
                     // Calculate the target end recoil and initial recoil based off of charge level
                     // Initial recoil is manually set to give a smoother recoil animation
@@ -168,8 +172,8 @@ namespace Eld.Projectiles
             float sightsResolution = MathHelper.Lerp(0.04f, 0.2f, Math.Min(ChargePercent * 1.5f, 1));
 
             // Converge the sights
-            float spread = (1f - ChargePercent) * MaxSightAngle;
-            float halfAngle = spread / 2f;
+            // float spread = (1f - ChargePercent) * MaxSightAngle;
+            // float halfAngle = spread / 2f;
             Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
 
             Color sightsColor = Color.Lerp(Color.LightBlue, Color.SeaGreen, ChargePercent);
@@ -195,7 +199,7 @@ namespace Eld.Projectiles
 
             laserScopeEffect.Parameters["mainOpacity"].SetValue(ChargePercent); //Opacity increases as the gun charges
             laserScopeEffect.Parameters["Resolution"].SetValue(new Vector2(sightsResolution * sightsSize));
-            laserScopeEffect.Parameters["laserAngle"].SetValue(-Projectile.rotation + halfAngle);
+            laserScopeEffect.Parameters["laserAngle"].SetValue(-Projectile.rotation);
             laserScopeEffect.Parameters["laserWidth"].SetValue(0.001f);
             //laserScopeEffect.Parameters["laserWidth"].SetValue(0.0001f + (float)Math.Pow(ChargePercent, 5) * ((float)Math.Sin(Main.GlobalTimeWrappedHourly * 3f) * 0.002f + 0.002f));
             laserScopeEffect.Parameters["laserLightStrenght"].SetValue(7f);
@@ -211,7 +215,7 @@ namespace Eld.Projectiles
 
             Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, null, Color.White, 0, new Vector2(texture.Width / 2f, texture.Height / 2f), sightsSize, 0, 0);
 
-            laserScopeEffect.Parameters["laserAngle"].SetValue(-Projectile.rotation - halfAngle);
+            laserScopeEffect.Parameters["laserAngle"].SetValue(-Projectile.rotation);
             Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, null, Color.White, 0, new Vector2(texture.Width / 2f, texture.Height / 2f), sightsSize, 0, 0);
 
 

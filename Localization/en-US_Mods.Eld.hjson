@@ -31,5 +31,9 @@ Items: {
 Projectiles: {
 	EidolonTracer.DisplayName: Eidolon Tracer
 	OldForestGodHoldout.DisplayName: Old Forest God Holdout
-	Ranged.GodOfTheForestScope.DisplayName: God Of The Forest Scope
+
+	Ranged: {
+		GodOfTheForestScope.DisplayName: God Of The Forest Scope
+		EidolonTracer.DisplayName: Eidolon Tracer
+	}
 }
