@@ -260,6 +260,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
+using Eld.Rarities;
 
 
 using System.Collections.Generic;
@@ -277,7 +278,7 @@ namespace Eld.Items.Weapons
 			Item.width = 46; // Hitbox width of the item.
 			Item.height = 22; // Hitbox height of the item.
 			Item.scale = 1.0f;
-			Item.rare = ItemRarityID.Green; // The color that the item's name will be in-game.
+			Item.rare = ModContent.RarityType<SeaGreen>();
 
 			// // Use Properties
 			// Item.useTime = 20; // The item's use time in ticks (60 ticks == 1 second.)

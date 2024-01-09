@@ -110,7 +110,7 @@ namespace Eld.Projectiles
                     Vector2 direction = MousePosition.SafeNormalize(Vector2.UnitX);
 
                     // Apply some recoil to the player
-                    Owner.velocity += direction * (ChargePercent * -5f);
+                    Owner.velocity += direction * (ChargePercent * -3f);
                     //Owner.Eld().GeneralScreenShakePower = 4f * ChargePercent;
 
                     // Spawn the laser
