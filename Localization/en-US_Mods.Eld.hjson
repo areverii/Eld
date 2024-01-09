@@ -1,0 +1,35 @@
+# This file will automatically update with entries for new content after a build and reload
+
+Items: {
+	TwilightChestplate: {
+		DisplayName: Twilight Chestplate
+		Tooltip: ""
+	}
+
+	TwilightGreaves: {
+		DisplayName: Twilight Greaves
+		Tooltip: ""
+	}
+
+	TwilightHelm: {
+		DisplayName: Twilight Helm
+		Tooltip: ""
+	}
+
+	GodOfTheForest: {
+		DisplayName: God Of The Forest
+		Tooltip:
+			'''
+			Converts musket balls into Eidolon tracer rounds that deal devastating damage
+			Each shot that lands builds a stack of Hunter's Mark
+			The final shot in the magazine is guaranteed to crit and spawns a number of Eidolon wisps based on Hunter's Mark
+			'Each shot rings out the cry of a slain god'
+			'''
+	}
+}
+
+Projectiles: {
+	EidolonTracer.DisplayName: Eidolon Tracer
+	OldForestGodHoldout.DisplayName: Old Forest God Holdout
+	Ranged.GodOfTheForestScope.DisplayName: God Of The Forest Scope
+}

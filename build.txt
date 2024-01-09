@@ -1,0 +1,7 @@
+author = areverii
+displayName = Eld
+hideCode = false
+hideResources = false
+includeSource = true
+version = 0.1
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, Old\*

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tF+3XxHhzG3FDL7PlAlT+bxeh9DujevSLZ6dp2QEjYCAZl774e1K9vsDC5F6LgPIF+7ch4fMFgnrPkAx7jPsSQ==",
+  "success": true,
+  "projectFilePath": "/Users/nick/Library/Application Support/Terraria/tModLoader/ModSources/Eld/Eld.csproj",
+  "expectedPackageFiles": [
+    "/Users/nick/.nuget/packages/tmodloader.codeassist/0.1.5/tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}
