@@ -1,6 +1,7 @@
 using Eld.Effects;
 using Terraria;
 using Terraria.ModLoader;
+using Eld.Projectiles.BaseProjectiles;
 
 namespace Eld
 {
@@ -19,6 +20,10 @@ namespace Eld
 				LoadClient();
 				//ForegroundDrawing.ForegroundManager.Load();
 			}
+
+			BaseIdleHoldoutProjectile.LoadAll();
+
+
         }
 
         private void LoadClient() {

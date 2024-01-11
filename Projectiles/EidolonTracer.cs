@@ -5,7 +5,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
-namespace CalamityMod.Projectiles.Ranged
+
+namespace Eld.Projectiles.Ranged
 {
     public class EidolonTracer : ModProjectile, ILocalizedModType
     {
@@ -18,14 +19,14 @@ namespace CalamityMod.Projectiles.Ranged
             Projectile.height = 4;
             Projectile.light = 0.5f;
             Projectile.alpha = 255;
-            Projectile.extraUpdates = 15;
+            Projectile.extraUpdates = 20;
             Projectile.scale = 1.18f;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.ignoreWater = true;
             Projectile.aiStyle = ProjAIStyleID.Arrow;
             AIType = ProjectileID.BulletHighVelocity;
-            Projectile.penetrate = 1;
+            Projectile.penetrate = 4;
             Projectile.timeLeft = 600;
         }
 

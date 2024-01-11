@@ -36,4 +36,18 @@ Projectiles: {
 		GodOfTheForestScope.DisplayName: God Of The Forest Scope
 		EidolonTracer.DisplayName: Eidolon Tracer
 	}
+
+	GodOfTheForestHoldout.DisplayName: God Of The Forest Holdout
+}
+
+Configs: {
+	EldConfig: {
+		DisplayName: Eld Config
+		Headers.Graphics: Graphics Header
+
+		Screenshake: {
+			Label: Screenshake
+			Tooltip: ""
+		}
+	}
 }
